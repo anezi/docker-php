@@ -1,5 +1,5 @@
-# PHP 7.0 Docker Container
-# Base Dockerfile: anezi/php
+# PHP cli Docker Container
+# Base Dockerfile: anezi/php-cli
 FROM ubuntu:latest
 MAINTAINER Hassan Amouhzi <hassan@anezi.net>
 
@@ -11,7 +11,6 @@ RUN echo "deb http://ppa.launchpad.net/ondrej/php-7.0/ubuntu `. /etc/lsb-release
 
 RUN apt-get update && apt-get install -y \
   git \
-  php7.0-fpm \
-  php-apcu \
+  php7.0-cli \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
