@@ -18,10 +18,17 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN phpize \
+# Install MaxMind-DB-Reader-php
+RUN cd /tmp \
+    && curl -sS https://github.com/maxmind/MaxMind-DB-Reader-php/archive/v1.1.0.tar.gz > MaxMind-DB-Reader-php.tar.gz \
+    && tar zxvf MaxMind-DB-Reader-php.tar.gz \
+    && cd MaxMind-DB-Reader-php/ext
+    && phpize \
     && ./configure \
     && make \
     && make install
+    && cd /tmp
+    && rm -rf MaxMind-DB-Reader-php
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.0.0-alpha11
