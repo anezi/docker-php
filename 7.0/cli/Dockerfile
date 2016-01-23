@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     php7.0-dev \
     php7.0-cli \
+    php7.0-curl \
     php7.0-intl \
     php7.0-mysql \
     libmaxminddb-dev \
@@ -34,7 +35,9 @@ RUN cd /tmp \
     && make \
     && make install \
     && cd /tmp \
-    && rm -rf MaxMind-DB-Reader-php
+    && rm -rf MaxMind-DB-Reader-php \
+    && echo "extension=maxminddb.so" > /etc/php/mods-available/maxminddb.ini \
+    && ln -s /etc/php/mods-available/maxminddb.ini /etc/php/7.0/cli/conf.d/20-maxminddb.ini
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.0.0-alpha11
