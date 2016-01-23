@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     php7.0-cli \
     php7.0-intl \
     php7.0-mysql \
+    libmaxminddb-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
