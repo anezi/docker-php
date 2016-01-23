@@ -1,4 +1,4 @@
-# PHP cli Docker Container
+# PHP CLI Docker Container
 # Base Dockerfile: anezi/php-cli
 FROM ubuntu:latest
 MAINTAINER Hassan Amouhzi <hassan@anezi.net>
