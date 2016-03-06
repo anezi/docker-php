@@ -36,7 +36,7 @@ RUN cd /tmp \
     && make install \
     && cd /tmp \
     && rm -rf MaxMind-DB-Reader-php \
-    && echo "extension=maxminddb.so" > /etc/php/mods-available/maxminddb.ini \
+    && echo "extension=maxminddb.so" > /etc/php/7.0/mods-available/maxminddb.ini \
     && ln -s /etc/php/mods-available/maxminddb.ini /etc/php/7.0/cli/conf.d/20-maxminddb.ini
 
 # Install composer
